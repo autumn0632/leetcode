@@ -88,7 +88,15 @@ func TestMergeNLists(t *testing.T) {
 
 }
 
+func TestSwapPairs(t *testing.T) {
+	l4 := &ListNode{4, nil}
+	l3 := &ListNode{3, l4}
+	l2 := &ListNode{2, l3}
+	l := &ListNode{1, l2}
 
+
+	SwapPairs(l)
+}
 
 
 
