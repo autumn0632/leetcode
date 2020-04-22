@@ -47,3 +47,16 @@ func TestMergeTwoLists(t *testing.T) {
 		n = n.Next
 	}
 }
+func TestRemoveNthFromEnd(t *testing.T) {
+	l4 := &ListNode{9, nil}
+	l3 := &ListNode{5, l4}
+	l2 := &ListNode{3, l3}
+	l := &ListNode{1, l2}
+
+	n := RemoveNthFromEnd(l, 4)
+	for n != nil {
+		fmt.Printf("%d\t", n.Val)
+		n = n.Next
+	}
+	fmt.Println()
+}
