@@ -9,7 +9,9 @@ example：
 输入：1->2->4, 1->3->4
 输出：1->1->2->3->4->4
 
-方法：使用哨兵节点，
+题解：
+1. 使用哨兵节点，
+2. 将哨兵节点赋值给新的变量，并根据业务逻辑移动变量
 */
 
 type ListNode struct {
@@ -18,25 +20,25 @@ type ListNode struct {
 }
 
 func MergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
-	preHead := new(ListNode)  // 哨兵节点
-	result := preHead
+	 l := new(ListNode)  // 哨兵节点
+	temp := l
 
 	for l1 != nil && l2 != nil {
 		if l1.Val < l2.Val {
-			preHead.Next = l1
+			temp.Next = l1
 			l1 = l1.Next
 		}else {
-			preHead.Next = l2
+			temp.Next = l2
 			l2 = l2.Next
 		}
-		preHead = preHead.Next
+		temp = temp.Next
 	}
 	if l1 != nil {
-		preHead.Next = l1
+		temp.Next = l1
 	}
 	if l2 != nil {
-		preHead.Next = l2
+		temp.Next = l2
 	}
 
-	return result.Next
+	return l.Next
 }

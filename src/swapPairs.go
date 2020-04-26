@@ -7,6 +7,10 @@ package src
 example:
 给定 1->2->3->4, 返回 2->1->4->3.
 
+题解：
+1. 使用递归，当只有两个节点时开始处理
+2. 处理时返回第二个节点（第二个节点指向下一个交互的第一个节点）
+
 */
 func SwapPairs(head *ListNode) *ListNode {
 	if head == nil || head.Next == nil {

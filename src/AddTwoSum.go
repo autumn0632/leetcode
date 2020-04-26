@@ -11,18 +11,22 @@ example：
 输出：7 -> 0 -> 8
 原因：342 + 465 = 807
 
+思路：
+1. 新建哨兵节点，返回值返回哨兵节点
+2. 新建变量，初始值等于哨兵节点，后续根据逻辑移动
+3. 进位的处理
 */
 func AddTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
-	result := new(ListNode)
+	l := new(ListNode)
 	if l1 == nil && l2 == nil {
-		return result
+		return l
 	}
-	newNode := result
-	a, b := 0, 0
+	newNode := l
 	carry := 0
 	for l1 != nil || l2 != nil || carry > 0 {
-		newNode.Next = new(ListNode)
-		newNode = newNode.Next
+		a, b := 0, 0
+		newNode.Next = new(ListNode) // 新建节点,连接到哨兵节点后面
+		newNode = newNode.Next       // newNode 移动
 		if l1 != nil {
 			a = l1.Val
 		}
@@ -39,6 +43,5 @@ func AddTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 			l2 = l2.Next
 		}
 	}
-
-	return result.Next
+	return l.Next
 }

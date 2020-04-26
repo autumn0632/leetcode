@@ -7,13 +7,14 @@ example:
 input: 1->2->3->4->5, 2
 output: 1->2->3->5
 
-题解：哨兵节点
+题解：
+1. 使用快慢指针,当快指针走完n的节点时，慢指针开始走。当快指针走到尾结点时，慢指针指向倒数第n个
 */
 
 func RemoveNthFromEnd(head *ListNode, n int) *ListNode {
-	result := &ListNode{} // 哨兵节点
-	result.Next = head
-	cur := result
+	l := new(ListNode)
+	l.Next = head // 返回l.Next
+	cur := l
 	var pre *ListNode
 
 	i := 1
@@ -26,7 +27,7 @@ func RemoveNthFromEnd(head *ListNode, n int) *ListNode {
 		head = head.Next
 		i ++
 	}
-	// 快指针一直移动，当快指针移动到最后一个，慢指针指向倒数第N个
+	// 删除动作：快指针一直移动，当快指针head移动到最后一个，慢指针pre指向倒数第N个
 	pre.Next = pre.Next.Next
-	return result.Next
+	return l.Next
 }
