@@ -88,12 +88,17 @@ func TestSwapPairs(t *testing.T) {
 	l3 := &ListNode{3, l4}
 	l2 := &ListNode{2, l3}
 	l := &ListNode{1, l2}
-
-
 	SwapPairs(l)
 }
 
+func TestIsPalindrome(t *testing.T) {
+	i := 1221
+	fmt.Printf("%d is 回文数?  %v\n", i, IsPalindromeInt(i))
 
+	str := "abcncbam"
+	fmt.Printf("%s is 回文字符串?  %v\n", str, IsPalindromeStr(str))
+
+}
 
 
 
